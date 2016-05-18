@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
     private ActionBarDrawerToggle drawerToggle;
     private NavDrawerListAdapter mAdapter;
 	
-    // slide menu items test
+    // slide menu items test 1
     private String[] navMenuTitles = {"Classic landscape", "Classic portrait", "Classic square", "Amazing frame"};
 
     @Override
