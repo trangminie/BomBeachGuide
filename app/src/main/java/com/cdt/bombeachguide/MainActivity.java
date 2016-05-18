@@ -108,6 +108,23 @@ public class MainActivity extends AppCompatActivity {
      * Diplaying fragment view for selected nav drawer list item
      * */
     private void displayView(int position) {
+        Fragment mFragment = null;
+//        mFragment = AlbumSelectorFragment.newInstance(position);
 
+        if (mFragment != null) {
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            fragmentManager.beginTransaction()
+                    .replace(R.id.frame_container, mFragment).commit();
+
+            // update selected item and title, then close the drawer
+            mDrawerList.setItemChecked(position, true);
+            mDrawerList.setSelection(position);
+            setTitle(navMenuTitles[position-1]);
+            if(mDrawerLayout.isDrawerOpen(findViewById(R.id.rl_drawer))){
+                mDrawerLayout.closeDrawer(findViewById(R.id.rl_drawer));
+            }
+        } else {
+            Log.e("MainActivity", "Error in creating fragment");
+        }
     }
 }
