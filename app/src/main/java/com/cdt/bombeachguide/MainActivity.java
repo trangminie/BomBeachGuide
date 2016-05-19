@@ -19,6 +19,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.cdt.bombeachguide.adapter.NavDrawerListAdapter;
+import com.cdt.bombeachguide.fragment.VideoFragment;
 import com.cdt.bombeachguide.pojo.NavDrawerItem;
 
 import java.util.ArrayList;
@@ -32,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
     private NavDrawerListAdapter mAdapter;
 	
     // slide menu items test 1
-    private String[] navMenuTitles = {"Classic landscape", "Classic portrait", "Classic square", "Amazing frame"};
+    private String[] navMenuTitles = {"Video", "None", "None", "None"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -109,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
      * */
     private void displayView(int position) {
         Fragment mFragment = null;
-//        mFragment = AlbumSelectorFragment.newInstance(position);
+        mFragment = VideoFragment.newInstance();
 
         if (mFragment != null) {
             FragmentManager fragmentManager = getSupportFragmentManager();
@@ -119,7 +120,7 @@ public class MainActivity extends AppCompatActivity {
             // update selected item and title, then close the drawer
             mDrawerList.setItemChecked(position, true);
             mDrawerList.setSelection(position);
-            setTitle(navMenuTitles[position-1]);
+            setTitle(navMenuTitles[position]);
             if(mDrawerLayout.isDrawerOpen(findViewById(R.id.rl_drawer))){
                 mDrawerLayout.closeDrawer(findViewById(R.id.rl_drawer));
             }

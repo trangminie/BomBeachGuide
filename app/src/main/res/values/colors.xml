@@ -13,4 +13,8 @@
     <color name="grid_state_pressed">#1Affffff</color>
     <color name="grid_state_focused">#80000000</color>
     <color name="action_bar_background">#DEB887</color>
+    <color name="list_row_hover_start_color">#ebeef0</color>
+    <color name="list_row_hover_end_color">#ebeef0</color>
+    <color name="list_row_start_color">#ffffff</color>
+    <color name="list_row_end_color">#ffffff</color>
 </resources>
