@@ -19,6 +19,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.cdt.bombeachguide.adapter.NavDrawerListAdapter;
+import com.cdt.bombeachguide.fragment.VideoFragment;
 import com.cdt.bombeachguide.pojo.NavDrawerItem;
 
 import java.util.ArrayList;
@@ -30,9 +31,13 @@ public class MainActivity extends AppCompatActivity {
     private Toolbar mToolbar;
     private ActionBarDrawerToggle drawerToggle;
     private NavDrawerListAdapter mAdapter;
-	
+
     // slide menu items test 1
-    private String[] navMenuTitles = {"Classic landscape", "Classic portrait", "Classic square", "Amazing frame"};
+<<<<<<< HEAD
+    private String[] navMenuTitles = {"Videos", "Artifacts", "Troops", "About","Setting"};
+=======
+    private String[] navMenuTitles = {"Video", "None", "None", "None"};
+>>>>>>> origin/master
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -70,15 +75,16 @@ public class MainActivity extends AppCompatActivity {
                 false);
         mDrawerList.addHeaderView(header);
         ArrayList<NavDrawerItem> navDrawerItems = new ArrayList<NavDrawerItem>();
-        // Home
+        // Videos
         navDrawerItems.add(new NavDrawerItem(navMenuTitles[0], navMenuIcons.getResourceId(0, -1)));
-        // Blocks & Item
+        // Artifacts
         navDrawerItems.add(new NavDrawerItem(navMenuTitles[1], navMenuIcons.getResourceId(1, -1)));
-        // Mobs
+        // Troops
         navDrawerItems.add(new NavDrawerItem(navMenuTitles[2], navMenuIcons.getResourceId(2, -1)));
-        // Youtube
+        // About
         navDrawerItems.add(new NavDrawerItem(navMenuTitles[3], navMenuIcons.getResourceId(3, -1)));
-
+        // Setting
+        navDrawerItems.add(new NavDrawerItem(navMenuTitles[4],navMenuIcons.getResourceId(4,-1)));
 
         // Recycle the typed array
         navMenuIcons.recycle();
@@ -109,7 +115,7 @@ public class MainActivity extends AppCompatActivity {
      * */
     private void displayView(int position) {
         Fragment mFragment = null;
-//        mFragment = AlbumSelectorFragment.newInstance(position);
+        mFragment = VideoFragment.newInstance();
 
         if (mFragment != null) {
             FragmentManager fragmentManager = getSupportFragmentManager();
@@ -119,7 +125,7 @@ public class MainActivity extends AppCompatActivity {
             // update selected item and title, then close the drawer
             mDrawerList.setItemChecked(position, true);
             mDrawerList.setSelection(position);
-            setTitle(navMenuTitles[position-1]);
+            setTitle(navMenuTitles[position]);
             if(mDrawerLayout.isDrawerOpen(findViewById(R.id.rl_drawer))){
                 mDrawerLayout.closeDrawer(findViewById(R.id.rl_drawer));
             }
