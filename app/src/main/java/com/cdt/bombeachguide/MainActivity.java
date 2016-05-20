@@ -32,12 +32,7 @@ public class MainActivity extends AppCompatActivity {
     private ActionBarDrawerToggle drawerToggle;
     private NavDrawerListAdapter mAdapter;
 
-    // slide menu items test 1
-<<<<<<< HEAD
     private String[] navMenuTitles = {"Videos", "Artifacts", "Troops", "About","Setting"};
-=======
-    private String[] navMenuTitles = {"Video", "None", "None", "None"};
->>>>>>> origin/master
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
