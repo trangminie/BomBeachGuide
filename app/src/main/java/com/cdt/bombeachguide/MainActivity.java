@@ -1,5 +1,6 @@
 package com.cdt.bombeachguide;
 
+import android.content.Context;
 import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -10,6 +11,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
 import android.view.Menu;
@@ -19,6 +21,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.cdt.bombeachguide.adapter.NavDrawerListAdapter;
+import com.cdt.bombeachguide.fragment.MainFragment;
 import com.cdt.bombeachguide.fragment.VideoFragment;
 import com.cdt.bombeachguide.pojo.NavDrawerItem;
 
@@ -43,6 +46,11 @@ public class MainActivity extends AppCompatActivity {
         if (savedInstanceState == null) {
             displayView(0);
         }
+    }
+
+    @Override
+    public View onCreateView(String name, Context context, AttributeSet attrs) {
+        return super.onCreateView(name, context, attrs);
     }
 
     private void createActionBar(){
@@ -110,7 +118,7 @@ public class MainActivity extends AppCompatActivity {
      * */
     private void displayView(int position) {
         Fragment mFragment = null;
-        mFragment = VideoFragment.newInstance();
+        mFragment = MainFragment.newInstance();
 
         if (mFragment != null) {
             FragmentManager fragmentManager = getSupportFragmentManager();

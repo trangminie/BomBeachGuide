@@ -1,23 +1,26 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/back_ground">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              android:background="@color/back_ground">
 
-    <ListView
-        android:layout_width="wrap_content"
+    <Button
+        android:id="@+id/btn_video_1"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/list_youtube"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:divider="@android:color/transparent"
-        android:dividerHeight="10.0sp"/>
+        android:text="VIDEO_1"/>
 
-    <ProgressBar
-        android:id="@+id/progressbar"
-        android:layout_width="wrap_content"
+    <Button
+        android:id="@+id/btn_video_2"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"/>
+        android:text="VIDEO_2"/>
+
+    <Button
+        android:id="@+id/btn_video_3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="VIDEO_3"/>
 
 
-</RelativeLayout>
+</LinearLayout>

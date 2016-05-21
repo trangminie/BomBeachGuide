@@ -2,7 +2,9 @@ package com.cdt.bombeachguide.youtube;
 
 import android.content.Context;
 import android.util.Log;
+import android.widget.LinearLayout;
 
+import com.cdt.bombeachguide.fragment.ListVideoFragment;
 import com.cdt.bombeachguide.fragment.VideoFragment;
 import com.cdt.bombeachguide.pojo.VideoItem;
 import com.google.api.client.googleapis.json.GoogleJsonResponseException;
@@ -91,7 +93,7 @@ public class YoutubeConnector {
         return items;
     }
 
-    public void searchVideoFromUrl(List<String> listUrl,VideoFragment fragment){
+    public void searchVideoFromUrl(List<String> listUrl, ListVideoFragment fragment){
         List<VideoItem> videos = new ArrayList<VideoItem>();
         for (String youtubeUrl : listUrl){
             try {
