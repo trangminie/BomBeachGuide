@@ -19,8 +19,10 @@ import android.view.MenuItem;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.cdt.bombeachguide.adapter.NavDrawerListAdapter;
+import com.cdt.bombeachguide.fragment.ItemFragment;
 import com.cdt.bombeachguide.fragment.MainFragment;
 import com.cdt.bombeachguide.fragment.VideoFragment;
 import com.cdt.bombeachguide.pojo.NavDrawerItem;
@@ -119,6 +121,27 @@ public class MainActivity extends AppCompatActivity {
     private void displayView(int position) {
         Fragment mFragment = null;
         mFragment = MainFragment.newInstance();
+
+        switch (position){
+            case 1:
+                mFragment = MainFragment.newInstance();
+                break;
+            case 2:
+                mFragment = ItemFragment.newInstance("http://boombeach.wikia.com/wiki/Category:Artifacts");
+                break;
+            case 3:
+                mFragment = ItemFragment.newInstance("http://boombeach.wikia.com/wiki/Category:Troops");
+                break;
+            case 4:
+                Toast.makeText(getApplicationContext(),"About Fragment",Toast.LENGTH_LONG).show();
+                break;
+            case 5:
+                Toast.makeText(getApplicationContext(),"Settings Fragment",Toast.LENGTH_LONG).show();
+                break;
+            default:
+                break;
+        }
+
 
         if (mFragment != null) {
             FragmentManager fragmentManager = getSupportFragmentManager();
