@@ -70,20 +70,20 @@ public class ListVideoFragment extends Fragment {
         handler = new Handler();
 
         addClickListener();
-        mFolderName = "lyrics.txt";
+        mFolderName = "Hea_lyrics.txt";
 
         listUrls = new ArrayList<String>();
         switch (mVideoType){
             case VideoFragment.LIST_VIEO_1:
-                mFolderName = "lyrics.txt";
+                mFolderName = "Hea_lyrics.txt";
                 break;
 
             case VideoFragment.LIST_VIEO_2:
-                mFolderName = "lyrics.txt";
+                mFolderName = "Zo_lyrics.txt";
                 break;
 
             case VideoFragment.LIST_VIEO_3:
-                mFolderName = "lyrics.txt";
+                mFolderName = "Tan_lyrics.txt";
                 break;
         }
         AssetManager assetManager = getActivity().getAssets();

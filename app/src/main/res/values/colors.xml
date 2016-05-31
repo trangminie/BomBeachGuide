@@ -7,12 +7,11 @@
     <color name="counter_text_bg">#626262</color>
     <color name="counter_text_color">#c5c4c4</color>
     <color name="list_divider">#d9d9d9</color>
-    <color name="back_ground_action_bar"> #DEB887</color>
-    <color name="back_ground">#F6F6F6</color>
-    <color name="backgound_for_image">#c5c4c4</color>
+    <color name="back_ground">#d2d0cf</color>
     <color name="grid_state_pressed">#1Affffff</color>
     <color name="grid_state_focused">#80000000</color>
-    <color name="action_bar_background">#DEB887</color>
+    <color name="action_bar_background">#111d29</color>
+    <color name="status_bar_background">#192b3d</color>
     <color name="list_row_hover_start_color">#ebeef0</color>
     <color name="list_row_hover_end_color">#ebeef0</color>
     <color name="list_row_start_color">#ffffff</color>
