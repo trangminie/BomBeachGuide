@@ -8,6 +8,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -64,7 +65,19 @@ public class ItemFragment extends Fragment {
              //   mItemAdapter.notifyDataSetChanged();
             }
         }).start();
+        mItemListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
+                ((Activity) mContext).runOnUiThread(new Runnable() {
 
+                    @Override
+                    public void run() {
+                        Toast.makeText(mContext,"click"+mItemArrayList.get(position).link,Toast.LENGTH_LONG).show();
+
+                    }
+                });
+            }
+        });
         return rootView;
 
     }

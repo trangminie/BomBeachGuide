@@ -3,8 +3,6 @@ package com.cdt.bombeachguide;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
@@ -14,8 +12,6 @@ import android.support.v7.widget.Toolbar;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -24,7 +20,6 @@ import android.widget.Toast;
 import com.cdt.bombeachguide.adapter.NavDrawerListAdapter;
 import com.cdt.bombeachguide.fragment.ItemFragment;
 import com.cdt.bombeachguide.fragment.MainFragment;
-import com.cdt.bombeachguide.fragment.VideoFragment;
 import com.cdt.bombeachguide.pojo.NavDrawerItem;
 
 import java.util.ArrayList;
@@ -48,6 +43,9 @@ public class MainActivity extends AppCompatActivity {
         if (savedInstanceState == null) {
             displayView(0);
         }
+
+
+
     }
 
     @Override
@@ -120,7 +118,7 @@ public class MainActivity extends AppCompatActivity {
      * */
     private void displayView(int position) {
         Fragment mFragment = null;
-        mFragment = MainFragment.newInstance();
+
 
         switch (position){
             case 1:
