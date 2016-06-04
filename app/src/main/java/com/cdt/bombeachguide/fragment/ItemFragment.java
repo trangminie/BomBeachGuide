@@ -2,18 +2,21 @@ package com.cdt.bombeachguide.fragment;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import com.cdt.bombeachguide.HTTP.HTTPProcess;
 import com.cdt.bombeachguide.HTTP.Item;
 import com.cdt.bombeachguide.R;
+import com.cdt.bombeachguide.WebViewActivity;
 import com.cdt.bombeachguide.adapter.ListItemAdapter;
 
 import java.util.ArrayList;
@@ -64,7 +67,22 @@ public class ItemFragment extends Fragment {
              //   mItemAdapter.notifyDataSetChanged();
             }
         }).start();
+        mItemListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
+                ((Activity) mContext).runOnUiThread(new Runnable() {
 
+                    @Override
+                    public void run() {
+                        Toast.makeText(mContext,"click"+mItemArrayList.get(position).link,Toast.LENGTH_LONG).show();
+                        Intent intent=new Intent(mContext,WebViewActivity.class);
+                        String url="http://boombeach.wikia.com"+mItemArrayList.get(position).link;
+                        intent.putExtra("link",url);
+                        startActivity(intent);
+                    }
+                });
+            }
+        });
         return rootView;
 
     }
