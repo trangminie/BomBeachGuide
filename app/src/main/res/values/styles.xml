@@ -25,4 +25,9 @@
         <item name="color">#ffffff</item>
     </style>
 
+    <style name="IntroTextStyle">
+        <item name="android:textColor">@color/back_ground</item>
+        <item name="android:textSize" > 14dp </item>
+    </style>
+
 </resources>
