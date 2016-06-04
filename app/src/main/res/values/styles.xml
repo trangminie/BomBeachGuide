@@ -30,4 +30,35 @@
         <item name="android:textSize" > 14dp </item>
     </style>
 
+    <style name="VideoNameStyle">
+        <item name="android:textColor">@color/status_bar_background</item>
+        <item name="android:textSize" > 14dp </item>
+    </style>
+
+    <style name="BigTextStyle">
+        <item name="android:textColor">@color/status_bar_background</item>
+        <item name="android:textSize" > 18dp </item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_marginBottom">8dp</item>
+        <item name="android:layout_marginLeft">8dp</item>
+        <item name="android:layout_marginTop">8dp</item>
+    </style>
+
+    <style name="SmallTextStyle">
+        <item name="android:textColor">@color/status_bar_background</item>
+        <item name="android:textSize" > 14dp </item>
+        <item name="android:layout_marginBottom">8dp</item>
+        <item name="android:layout_marginLeft">8dp</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="card_view" parent="CardView">
+        <item name="android:layout_marginLeft">3dp</item>
+        <item name="android:layout_marginRight">3dp</item>
+        <item name="android:layout_marginBottom">4dp</item>
+        <item name="contentPadding">8dp</item>
+        <item name="cardCornerRadius">2dp</item>
+    </style>
+
 </resources>

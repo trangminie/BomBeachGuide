@@ -17,9 +17,9 @@ import com.cdt.bombeachguide.R;
  */
 public class VideoFragment extends Fragment {
 
-    public static final int LIST_VIEO_1 = 1;
-    public static final int LIST_VIEO_2 = 2;
-    public static final int LIST_VIEO_3 = 3;
+    public static final int LIST_VIDEO_HEAVY = 1;
+    public static final int LIST_VIDEO_ZOKA = 2;
+    public static final int LIST_VIDEO_TANK = 3;
 
 
     public static VideoFragment newInstance(){
@@ -44,21 +44,21 @@ public class VideoFragment extends Fragment {
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                chooseListVideo(LIST_VIEO_1);
+                chooseListVideo(LIST_VIDEO_HEAVY);
             }
         });
 
         btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                chooseListVideo(LIST_VIEO_2);
+                chooseListVideo(LIST_VIDEO_ZOKA);
             }
         });
 
         btn3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                chooseListVideo(LIST_VIEO_3);
+                chooseListVideo(LIST_VIDEO_TANK);
             }
         });
 

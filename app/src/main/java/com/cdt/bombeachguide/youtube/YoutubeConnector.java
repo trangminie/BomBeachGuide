@@ -4,6 +4,7 @@ import android.content.Context;
 import android.util.Log;
 import android.widget.LinearLayout;
 
+import com.cdt.bombeachguide.VideoFragmentInterface;
 import com.cdt.bombeachguide.fragment.ListVideoFragment;
 import com.cdt.bombeachguide.fragment.VideoFragment;
 import com.cdt.bombeachguide.pojo.VideoItem;
@@ -39,13 +40,15 @@ public class YoutubeConnector {
     private YouTube.Search.List query;
 
     private String TAG = "Youtube Connector";
+    private int mVideoType;
 
     // Your developer key goes here
     public static final String KEY
             = "AIzaSyAZe5fNrlkPPIwJgZAFZ4jUek-2YKy0OV4";
 
-    public YoutubeConnector(Context context) {
+    public YoutubeConnector(Context context, int videoType) {
         List<String> scopes = Lists.newArrayList("https://www.googleapis.com/auth/youtube.readonly");
+        mVideoType = videoType;
 
         youtube = new YouTube.Builder(new NetHttpTransport(),
                 new JacksonFactory(), new HttpRequestInitializer() {
@@ -93,7 +96,7 @@ public class YoutubeConnector {
         return items;
     }
 
-    public void searchVideoFromUrl(List<String> listUrl, ListVideoFragment fragment){
+    public void searchVideoFromUrl(List<String> listUrl, VideoFragmentInterface fragment){
         List<VideoItem> videos = new ArrayList<VideoItem>();
         for (String youtubeUrl : listUrl){
             try {
@@ -129,7 +132,7 @@ public class YoutubeConnector {
                     videos.add(entity);
                 }
                 if(videos.size() > 4){
-                    fragment.addVideoItems(new ArrayList<VideoItem>(videos));
+                    fragment.addVideoItems(new ArrayList<VideoItem>(videos), mVideoType);
                     videos.clear();
                 }
             }catch (Exception e){
@@ -137,7 +140,7 @@ public class YoutubeConnector {
             }
         }
         if(!videos.isEmpty()){
-            fragment.addVideoItems(new ArrayList<VideoItem>(videos));
+            fragment.addVideoItems(new ArrayList<VideoItem>(videos), mVideoType);
             videos.clear();
         }
     }

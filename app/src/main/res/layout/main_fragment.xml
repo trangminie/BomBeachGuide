@@ -1,9 +1,135 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.RecyclerView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/recycler_view"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
 
-</android.support.v7.widget.RecyclerView>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </android.support.v7.widget.RecyclerView>
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_span="4"
+            android:text="Video"
+            style="@style/BigTextStyle"/>
+
+        <android.support.v7.widget.CardView
+            style="@style/card_view"
+            android:layout_width="fill_parent"
+            android:layout_height="260dp">
+
+            <TextView
+                android:id="@+id/list_video_heavy"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_span="4"
+                android:text="Heavy+ Zoka Strategy"
+                style="@style/SmallTextStyle"/>
+
+            <ProgressBar
+                android:id="@+id/heavy_progressbar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+              />
+
+            <com.cdt.bombeachguide.ui.HorizontalListView
+                android:id="@+id/video_heavy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="45dp"
+                android:layout_marginBottom="10dp"
+                android:smoothScrollbar="true"
+                android:spacing="20dip"
+                android:layout_marginRight="5dip">
+
+            </com.cdt.bombeachguide.ui.HorizontalListView>
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            style="@style/card_view"
+            android:layout_width="fill_parent"
+            android:layout_height="260dp"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:id="@+id/list_video_zoka"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_span="4"
+                android:text="Zoka + Rifleman + Medic Strategy"
+                style="@style/SmallTextStyle"/>
+
+            <ProgressBar
+                android:id="@+id/zoka_progressbar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                />
+
+            <com.cdt.bombeachguide.ui.HorizontalListView
+                android:id="@+id/video_zoka"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="45dp"
+                android:layout_marginBottom="10dp"
+                android:smoothScrollbar="true"
+                android:spacing="20dip"
+                android:layout_marginRight="5dip">
+
+            </com.cdt.bombeachguide.ui.HorizontalListView>
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            style="@style/card_view"
+            android:layout_width="fill_parent"
+            android:layout_height="260dp"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:id="@+id/list_video_tank"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_span="4"
+                android:text="Heavy+ Zoka Strategy"
+                style="@style/SmallTextStyle"/>
+
+            <ProgressBar
+                android:id="@+id/tank_progressbar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                />
+
+            <com.cdt.bombeachguide.ui.HorizontalListView
+                android:id="@+id/video_tank"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="45dp"
+                android:layout_marginBottom="10dp"
+                android:smoothScrollbar="true"
+                android:spacing="20dip"
+                android:layout_marginRight="5dip">
+
+            </com.cdt.bombeachguide.ui.HorizontalListView>
+
+        </android.support.v7.widget.CardView>
+
+
+    </LinearLayout>
+</ScrollView>

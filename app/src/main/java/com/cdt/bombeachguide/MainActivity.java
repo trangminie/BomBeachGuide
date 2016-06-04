@@ -146,19 +146,19 @@ public class MainActivity extends AppCompatActivity {
 
 
         switch (position){
-            case 1:
+            case 0:
                 mFragment = MainFragment.newInstance();
                 break;
-            case 2:
+            case 1:
                 mFragment = ItemFragment.newInstance("http://boombeach.wikia.com/wiki/Category:Artifacts");
                 break;
-            case 3:
+            case 2:
                 mFragment = ItemFragment.newInstance("http://boombeach.wikia.com/wiki/Category:Troops");
                 break;
-            case 4:
+            case 3:
                 Toast.makeText(getApplicationContext(),"About Fragment",Toast.LENGTH_LONG).show();
                 break;
-            case 5:
+            case 4:
                 Toast.makeText(getApplicationContext(),"Settings Fragment",Toast.LENGTH_LONG).show();
                 break;
             default:

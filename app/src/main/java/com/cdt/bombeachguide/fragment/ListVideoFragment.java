@@ -19,6 +19,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.cdt.bombeachguide.R;
+import com.cdt.bombeachguide.VideoFragmentInterface;
 import com.cdt.bombeachguide.pojo.VideoItem;
 import com.cdt.bombeachguide.youtube.PlayerActivity;
 import com.cdt.bombeachguide.youtube.YoutubeConnector;
@@ -34,7 +35,7 @@ import java.util.List;
 /**
  * Created by Trang on 5/21/2016.
  */
-public class ListVideoFragment extends Fragment {
+public class ListVideoFragment extends Fragment implements VideoFragmentInterface{
 
     private ListView youtubeListView;
     private ProgressBar progressBar;
@@ -74,15 +75,15 @@ public class ListVideoFragment extends Fragment {
 
         listUrls = new ArrayList<String>();
         switch (mVideoType){
-            case VideoFragment.LIST_VIEO_1:
+            case VideoFragment.LIST_VIDEO_HEAVY:
                 mFolderName = "Hea_lyrics.txt";
                 break;
 
-            case VideoFragment.LIST_VIEO_2:
+            case VideoFragment.LIST_VIDEO_ZOKA:
                 mFolderName = "Zo_lyrics.txt";
                 break;
 
-            case VideoFragment.LIST_VIEO_3:
+            case VideoFragment.LIST_VIDEO_TANK:
                 mFolderName = "Tan_lyrics.txt";
                 break;
         }
@@ -122,13 +123,13 @@ public class ListVideoFragment extends Fragment {
     private void searchOnYoutube(final List<String> listUrl){
         new Thread(){
             public void run(){
-                YoutubeConnector yc = new YoutubeConnector(getActivity());
+                YoutubeConnector yc = new YoutubeConnector(getActivity(), mVideoType);
                 yc.searchVideoFromUrl(listUrl, ListVideoFragment.this);
             }
         }.start();
     }
 
-    public void addVideoItems(final Collection<VideoItem> videoItems){
+    public void addVideoItems(final Collection<VideoItem> videoItems, int videoType){
         handler.post(new Runnable() {
             @Override
             public void run() {
