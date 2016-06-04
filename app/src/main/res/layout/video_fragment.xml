@@ -3,24 +3,61 @@
               android:layout_height="match_parent"
               android:orientation="vertical"
               android:background="@color/back_ground">
-
-    <Button
-        android:id="@+id/btn_video_1"
-        android:layout_width="match_parent"
+    <LinearLayout
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="VIDEO_1"/>
+        android:orientation="vertical"
+        android:layout_weight="1">
+        <Button
+            android:id="@+id/btn_video_1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Heavy+ Zoka Strategy"
+            />
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/hoka"/>
 
-    <Button
-        android:id="@+id/btn_video_2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="VIDEO_2"/>
+    </LinearLayout>
 
-    <Button
-        android:id="@+id/btn_video_3"
-        android:layout_width="match_parent"
+
+
+    <LinearLayout
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="VIDEO_3"/>
+        android:orientation="vertical"
+        android:layout_weight="1">
+        <Button
+            android:id="@+id/btn_video_2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Zoka + Rifleman + Medic Strategy"
+            />
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/hoka"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="1">
+        <Button
+            android:id="@+id/btn_video_3"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Tank + Medic + Rfleman + Grenadier Strategy"
+            />
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/hoka"/>
+
+    </LinearLayout>
+
 
 
 </LinearLayout>

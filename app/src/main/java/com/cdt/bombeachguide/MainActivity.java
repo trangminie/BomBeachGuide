@@ -1,6 +1,7 @@
 package com.cdt.bombeachguide;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -31,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
     private Toolbar mToolbar;
     private ActionBarDrawerToggle drawerToggle;
     private NavDrawerListAdapter mAdapter;
+    private Context mContext;
 
     private String[] navMenuTitles = {"Videos", "Artifacts", "Troops", "About","Setting"};
 
@@ -38,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        mContext = this;
         createActionBar();
         initDrawer();
         if (savedInstanceState == null) {
@@ -109,7 +112,29 @@ public class MainActivity extends AppCompatActivity {
         public void onItemClick(AdapterView<?> parent, View view, int position,
                                 long id) {
             // display view for selected nav drawer item
-            displayView(position);
+            switch (position){
+                case 1:
+                    mDrawerList.setItemChecked(position, true);
+                    mDrawerList.setSelection(position);
+                    if(mDrawerLayout.isDrawerOpen(findViewById(R.id.rl_drawer))){
+                        mDrawerLayout.closeDrawer(findViewById(R.id.rl_drawer));
+                    }
+                    Intent videosIntent = VideoActivity.newIntent(mContext);
+                    startActivity(videosIntent);
+
+                    break;
+
+                case 2:
+
+                    break;
+
+
+                case 3:
+
+                    break;
+
+
+            }
         }
     }
 
@@ -147,9 +172,9 @@ public class MainActivity extends AppCompatActivity {
                     .replace(R.id.frame_container, mFragment).commit();
 
             // update selected item and title, then close the drawer
-            mDrawerList.setItemChecked(position, true);
-            mDrawerList.setSelection(position);
-            setTitle(navMenuTitles[position]);
+//            mDrawerList.setItemChecked(position, true);
+//            mDrawerList.setSelection(position);
+            setTitle("BoomBeachGuide");
             if(mDrawerLayout.isDrawerOpen(findViewById(R.id.rl_drawer))){
                 mDrawerLayout.closeDrawer(findViewById(R.id.rl_drawer));
             }
