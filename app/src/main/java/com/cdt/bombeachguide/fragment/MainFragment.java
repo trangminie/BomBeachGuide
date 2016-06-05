@@ -43,6 +43,8 @@ public class MainFragment extends BaseFragment implements VideoFragmentInterface
     private ArrayList<IntroduceItem> mIntroduceItemsList;
     private AssetManager assetManager;
 
+    private TextView mVideoTextView;
+
     private HorizontalListView mHeavyListView;
     private ProgressBar mHeavyProgressBar;
     private Handler mHeavyHandler;
@@ -81,6 +83,7 @@ public class MainFragment extends BaseFragment implements VideoFragmentInterface
         mRecyclerView.setAdapter(new ImageAdapter(mIntroduceItemsList));
 
         assetManager = getActivity().getAssets();
+        mVideoTextView = (TextView) rootView.findViewById(R.id.txt_video);
 
         mHeavyListView = (HorizontalListView) rootView.findViewById(R.id.video_heavy);
         mHeavyProgressBar = (ProgressBar) rootView.findViewById(R.id.heavy_progressbar);
@@ -345,6 +348,13 @@ public class MainFragment extends BaseFragment implements VideoFragmentInterface
     }
 
     private void addClickListernerForListVideo(){
+        mVideoTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                VideoFragment videoFragment = VideoFragment.newInstance();
+                displayDetail(videoFragment);
+            }
+        });
         mHeavyTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
