@@ -2,11 +2,8 @@ package com.cdt.bombeachguide.youtube;
 
 import android.content.Context;
 import android.util.Log;
-import android.widget.LinearLayout;
 
-import com.cdt.bombeachguide.VideoFragmentInterface;
-import com.cdt.bombeachguide.fragment.ListVideoFragment;
-import com.cdt.bombeachguide.fragment.VideoFragment;
+import com.cdt.bombeachguide.inter.VideoFragmentInterface;
 import com.cdt.bombeachguide.pojo.VideoItem;
 import com.google.api.client.googleapis.json.GoogleJsonResponseException;
 import com.google.api.client.http.HttpRequest;

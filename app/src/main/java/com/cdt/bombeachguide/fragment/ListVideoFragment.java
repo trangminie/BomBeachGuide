@@ -7,7 +7,6 @@ import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,7 +18,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.cdt.bombeachguide.R;
-import com.cdt.bombeachguide.VideoFragmentInterface;
+import com.cdt.bombeachguide.inter.VideoFragmentInterface;
 import com.cdt.bombeachguide.pojo.VideoItem;
 import com.cdt.bombeachguide.youtube.PlayerActivity;
 import com.cdt.bombeachguide.youtube.YoutubeConnector;

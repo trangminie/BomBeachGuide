@@ -1,4 +1,4 @@
-package com.cdt.bombeachguide;
+package com.cdt.bombeachguide.inter;
 
 import com.cdt.bombeachguide.pojo.VideoItem;
 
