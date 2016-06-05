@@ -16,4 +16,8 @@
     <color name="list_row_hover_end_color">#ebeef0</color>
     <color name="list_row_start_color">#ffffff</color>
     <color name="list_row_end_color">#ffffff</color>
+
+    <color name="twitter">#23C4FF</color>
+    <color name="grey">#BEBEBE</color>
+    <color name="white">#FFFFFF</color>
 </resources>

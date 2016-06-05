@@ -33,4 +33,12 @@ public class BaseFragment extends Fragment {
         }
     }
 
+    public CharSequence getTitle(){
+        return getMainActivity().getSupportActionBar().getTitle();
+    }
+
+    public void setTitle(CharSequence title){
+        getMainActivity().getSupportActionBar().setTitle(title);
+    }
+
 }

@@ -16,4 +16,18 @@
 
     <!-- Content Description -->
     <string name="desc_list_item_icon">Item Icon</string>
+    <string name="image">image</string>
+
+    <string name="desc_heavy">This is introduce for heavy list video.</string>
+      <string name="desc_zoka">This is introduce for zoka list video.</string>
+    <string name="desc_tank">This is introduce for tank list video.</string>
+
+
+
+    <string name="italic_heavy">Heavy+ Zoka Strategy.</string>
+    <string name="italic_zoka">Zoka + Rifleman + Medic Strategy.</string>
+    <string name="italic_tank">Tank + Medic + Rfleman + Grenadier Strategy.</string>
+
+
+    <string name="go_to">GO TO LIST VIDEO</string>
 </resources>

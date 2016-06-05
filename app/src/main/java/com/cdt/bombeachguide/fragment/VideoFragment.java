@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,6 +21,9 @@ public class VideoFragment extends BaseFragment {
     public static final int LIST_VIDEO_ZOKA = 2;
     public static final int LIST_VIDEO_TANK = 3;
 
+    private CardView mHeavyCardView;
+    private CardView mZokaCardView;
+    private CardView mTankCardView;
 
     public static VideoFragment newInstance(){
         VideoFragment fragment = new VideoFragment();
@@ -35,26 +39,26 @@ public class VideoFragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.video_fragment, container, false);
+        setTitle("Video");
 
-        Button btn1 = (Button) rootView.findViewById(R.id.btn_video_1);
-        Button btn2 = (Button) rootView.findViewById(R.id.btn_video_2);
-        Button btn3 = (Button) rootView.findViewById(R.id.btn_video_3);
-
-        btn1.setOnClickListener(new View.OnClickListener() {
+        mHeavyCardView = (CardView) rootView.findViewById(R.id.heavy_view);
+        mHeavyCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 chooseListVideo(LIST_VIDEO_HEAVY);
             }
         });
 
-        btn2.setOnClickListener(new View.OnClickListener() {
+        mZokaCardView = (CardView) rootView.findViewById(R.id.zoka_view);
+        mZokaCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 chooseListVideo(LIST_VIDEO_ZOKA);
             }
         });
 
-        btn3.setOnClickListener(new View.OnClickListener() {
+        mTankCardView = (CardView) rootView.findViewById(R.id.tank_view);
+        mTankCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 chooseListVideo(LIST_VIDEO_TANK);
@@ -65,10 +69,12 @@ public class VideoFragment extends BaseFragment {
         return rootView;
     }
 
-    private void chooseListVideo(int listVideo){
-        ListVideoFragment fragment = ListVideoFragment.newInstance(listVideo);
+    private void chooseListVideo(int videoType){
+        ListVideoFragment fragment = ListVideoFragment.newInstance(videoType);
         displayDetail(fragment);
     }
+
+
 
 
 }

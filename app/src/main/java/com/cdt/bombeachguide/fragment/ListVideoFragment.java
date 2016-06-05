@@ -43,8 +43,6 @@ public class ListVideoFragment extends BaseFragment implements VideoFragmentInte
     private CustomArrayAdapter<VideoItem> adapter;
 
     private static final String ARG_VIDEO_TYPE = "video_type";
-    private static final String EXTRA_TYPE_VIDEO =
-            "com.cdt.bombeachguide.type_video";
     private int mVideoType;
     private String mFolderName;
 
