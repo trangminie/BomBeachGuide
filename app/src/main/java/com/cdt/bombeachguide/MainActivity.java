@@ -1,7 +1,6 @@
 package com.cdt.bombeachguide;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -19,7 +18,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.cdt.bombeachguide.adapter.NavDrawerListAdapter;
-import com.cdt.bombeachguide.fragment.ItemFragment;
+import com.cdt.bombeachguide.fragment.ListItemFragment;
 import com.cdt.bombeachguide.fragment.MainFragment;
 import com.cdt.bombeachguide.fragment.VideoFragment;
 import com.cdt.bombeachguide.pojo.NavDrawerItem;
@@ -36,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
     private Context mContext;
     private boolean isViewDetail = false;
 
-    private String[] navMenuTitles = {"Videos", "Artifacts", "Troops", "About","Setting"};
+    private String[] navMenuTitles = {"Home" ,"Videos", "Artifacts", "Troops", "About","Setting"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -46,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         createActionBar();
         initDrawer();
         if (savedInstanceState == null) {
-            displayView(-1);
+            displayView(1);
         }
 
 
@@ -83,16 +82,18 @@ public class MainActivity extends AppCompatActivity {
                 false);
         mDrawerList.addHeaderView(header);
         ArrayList<NavDrawerItem> navDrawerItems = new ArrayList<NavDrawerItem>();
-        // Videos
+        //Home
         navDrawerItems.add(new NavDrawerItem(navMenuTitles[0], navMenuIcons.getResourceId(0, -1)));
-        // Artifacts
+        // Videos
         navDrawerItems.add(new NavDrawerItem(navMenuTitles[1], navMenuIcons.getResourceId(1, -1)));
-        // Troops
+        // Artifacts
         navDrawerItems.add(new NavDrawerItem(navMenuTitles[2], navMenuIcons.getResourceId(2, -1)));
-        // About
+        // Troops
         navDrawerItems.add(new NavDrawerItem(navMenuTitles[3], navMenuIcons.getResourceId(3, -1)));
+        // About
+        navDrawerItems.add(new NavDrawerItem(navMenuTitles[4], navMenuIcons.getResourceId(4, -1)));
         // Setting
-        navDrawerItems.add(new NavDrawerItem(navMenuTitles[4],navMenuIcons.getResourceId(4,-1)));
+        navDrawerItems.add(new NavDrawerItem(navMenuTitles[5],navMenuIcons.getResourceId(5,-1)));
 
         // Recycle the typed array
         navMenuIcons.recycle();
@@ -154,18 +155,21 @@ public class MainActivity extends AppCompatActivity {
 
         switch (position){
             case 1:
-                mFragment = VideoFragment.newInstance();
+                mFragment = MainFragment.newInstance();
                 break;
             case 2:
-                mFragment = ItemFragment.newInstance("http://boombeach.wikia.com/wiki/Category:Artifacts");
+                mFragment = VideoFragment.newInstance();
                 break;
             case 3:
-                mFragment = ItemFragment.newInstance("http://boombeach.wikia.com/wiki/Category:Troops");
+                mFragment = ListItemFragment.newInstance("http://boombeach.wikia.com/wiki/Category:Artifacts");
                 break;
             case 4:
-                Toast.makeText(getApplicationContext(),"About Fragment",Toast.LENGTH_LONG).show();
+                mFragment = ListItemFragment.newInstance("http://boombeach.wikia.com/wiki/Category:Troops");
                 break;
             case 5:
+                Toast.makeText(getApplicationContext(),"About Fragment",Toast.LENGTH_LONG).show();
+                break;
+            case 6:
                 Toast.makeText(getApplicationContext(),"Settings Fragment",Toast.LENGTH_LONG).show();
                 break;
             default:

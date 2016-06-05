@@ -18,8 +18,7 @@ import java.util.ArrayList;
 /**
  * Created by nguyen on 5/22/2016.
  */
-public class ListItemAdapter extends
-        ArrayAdapter<Item>
+public class ListItemAdapter extends ArrayAdapter<Item>
 {
     Activity context=null;
     ArrayList<Item> myArray=null;
