@@ -345,7 +345,7 @@ public class MainFragment extends Fragment implements VideoFragmentInterface{
             }
         });
 
-        mTankListView.setOnClickListener(new View.OnClickListener() {
+        mTankTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = ListVideoActivity.newIntent(getContext(), VideoFragment.LIST_VIDEO_TANK);
