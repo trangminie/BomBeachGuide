@@ -301,6 +301,26 @@ public class MainFragment extends BaseFragment implements VideoFragmentInterface
                     }
                 });
                 break;
+
+            case VideoFragment.LIST_VIDEO_ZOKA:
+                mZokaHandler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        mZokaProgressBar.setVisibility(View.GONE);
+                        mZokaAdapter.addItems(videoItems);
+                    }
+                });
+                break;
+
+            case VideoFragment.LIST_VIDEO_TANK:
+                mTankHandler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        mTankProgressBar.setVisibility(View.GONE);
+                        mTankAdapter.addItems(videoItems);
+                    }
+                });
+                break;
         }
 
     }
