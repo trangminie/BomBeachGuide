@@ -21,6 +21,7 @@ import android.widget.Toast;
 import com.cdt.bombeachguide.adapter.NavDrawerListAdapter;
 import com.cdt.bombeachguide.fragment.ItemFragment;
 import com.cdt.bombeachguide.fragment.MainFragment;
+import com.cdt.bombeachguide.fragment.VideoFragment;
 import com.cdt.bombeachguide.pojo.NavDrawerItem;
 
 import java.util.ArrayList;
@@ -33,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
     private ActionBarDrawerToggle drawerToggle;
     private NavDrawerListAdapter mAdapter;
     private Context mContext;
+    private boolean isViewDetail = false;
 
     private String[] navMenuTitles = {"Videos", "Artifacts", "Troops", "About","Setting"};
 
@@ -44,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         createActionBar();
         initDrawer();
         if (savedInstanceState == null) {
-            displayView(0);
+            displayView(-1);
         }
 
 
@@ -112,29 +114,34 @@ public class MainActivity extends AppCompatActivity {
         public void onItemClick(AdapterView<?> parent, View view, int position,
                                 long id) {
             // display view for selected nav drawer item
-            switch (position){
-                case 1:
-                    mDrawerList.setItemChecked(position, true);
-                    mDrawerList.setSelection(position);
-                    if(mDrawerLayout.isDrawerOpen(findViewById(R.id.rl_drawer))){
-                        mDrawerLayout.closeDrawer(findViewById(R.id.rl_drawer));
-                    }
-                    Intent videosIntent = VideoActivity.newIntent(mContext);
-                    startActivity(videosIntent);
+            displayView(position);
+        }
+    }
 
-                    break;
-
-                case 2:
-
-                    break;
-
-
-                case 3:
-
-                    break;
-
-
+    public void showDrawerAsBack(){
+        drawerToggle.setDrawerIndicatorEnabled(false);
+        drawerToggle.setToolbarNavigationClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getSupportFragmentManager().popBackStack();
             }
+        });
+        isViewDetail = true;
+    }
+
+    public void showDrawerAsDrawer(){
+        drawerToggle.setDrawerIndicatorEnabled(true);
+
+    }
+
+
+    @Override
+    public void onBackPressed() {
+        if(mDrawerLayout.isDrawerOpen(findViewById(R.id.rl_drawer))){
+            mDrawerLayout.closeDrawer(findViewById(R.id.rl_drawer));
+        }
+        else {
+            super.onBackPressed();
         }
     }
 
@@ -147,7 +154,7 @@ public class MainActivity extends AppCompatActivity {
 
         switch (position){
             case 0:
-                mFragment = MainFragment.newInstance();
+                mFragment = VideoFragment.newInstance();
                 break;
             case 1:
                 mFragment = ItemFragment.newInstance("http://boombeach.wikia.com/wiki/Category:Artifacts");
@@ -162,6 +169,7 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(),"Settings Fragment",Toast.LENGTH_LONG).show();
                 break;
             default:
+                mFragment = MainFragment.newInstance();
                 break;
         }
 

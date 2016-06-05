@@ -35,7 +35,7 @@ import java.util.List;
 /**
  * Created by Trang on 5/21/2016.
  */
-public class ListVideoFragment extends Fragment implements VideoFragmentInterface{
+public class ListVideoFragment extends BaseFragment implements VideoFragmentInterface{
 
     private ListView youtubeListView;
     private ProgressBar progressBar;
@@ -44,6 +44,8 @@ public class ListVideoFragment extends Fragment implements VideoFragmentInterfac
     private CustomArrayAdapter<VideoItem> adapter;
 
     private static final String ARG_VIDEO_TYPE = "video_type";
+    private static final String EXTRA_TYPE_VIDEO =
+            "com.cdt.bombeachguide.type_video";
     private int mVideoType;
     private String mFolderName;
 
@@ -115,7 +117,7 @@ public class ListVideoFragment extends Fragment implements VideoFragmentInterfac
         };
         youtubeListView.setAdapter(adapter);
         searchOnYoutube(listUrls);
-
+        getMainActivity().showDrawerAsDrawer();
         return rootView;
     }
 

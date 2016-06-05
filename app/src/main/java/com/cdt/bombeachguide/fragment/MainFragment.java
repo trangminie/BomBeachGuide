@@ -15,14 +15,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.cdt.bombeachguide.ListVideoActivity;
 import com.cdt.bombeachguide.R;
-import com.cdt.bombeachguide.VideoActivity;
 import com.cdt.bombeachguide.VideoFragmentInterface;
 import com.cdt.bombeachguide.pojo.IntroduceItem;
 import com.cdt.bombeachguide.pojo.VideoItem;
@@ -41,7 +38,7 @@ import java.util.List;
 /**
  * Created by Trang on 5/21/2016.
  */
-public class MainFragment extends Fragment implements VideoFragmentInterface{
+public class MainFragment extends BaseFragment implements VideoFragmentInterface{
     private Context mContext;
     private RecyclerView mRecyclerView;
     private ArrayList<IntroduceItem> mIntroduceItemsList;
@@ -254,8 +251,8 @@ public class MainFragment extends Fragment implements VideoFragmentInterface{
 
         @Override
         public void onClick(View view) {
-            Intent intent = VideoActivity.newIntent(getContext());
-            startActivity(intent);
+            VideoFragment videoFragment = VideoFragment.newInstance();
+            displayDetail(videoFragment);
         }
     }
 
@@ -332,24 +329,24 @@ public class MainFragment extends Fragment implements VideoFragmentInterface{
         mHeavyTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = ListVideoActivity.newIntent(getContext(), VideoFragment.LIST_VIDEO_HEAVY);
-                startActivity(intent);
+                ListVideoFragment listVideoFragment = ListVideoFragment.newInstance(VideoFragment.LIST_VIDEO_HEAVY);
+                displayDetail(listVideoFragment);
             }
         });
 
         mZokaTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = ListVideoActivity.newIntent(getContext(), VideoFragment.LIST_VIDEO_ZOKA);
-                startActivity(intent);
+                ListVideoFragment listVideoFragment = ListVideoFragment.newInstance(VideoFragment.LIST_VIDEO_ZOKA);
+                displayDetail(listVideoFragment);
             }
         });
 
         mTankTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = ListVideoActivity.newIntent(getContext(), VideoFragment.LIST_VIDEO_TANK);
-                startActivity(intent);
+                ListVideoFragment listVideoFragment = ListVideoFragment.newInstance(VideoFragment.LIST_VIDEO_TANK);
+                displayDetail(listVideoFragment);
             }
         });
     }

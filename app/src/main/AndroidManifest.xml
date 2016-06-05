@@ -21,9 +21,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".VideoActivity" />
         <activity android:name=".WebViewActivity" />
-        <activity android:name=".ListVideoActivity"/>
         <activity android:name=".youtube.PlayerActivity"
                   android:screenOrientation="landscape"/>
 

@@ -9,13 +9,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import com.cdt.bombeachguide.ListVideoActivity;
 import com.cdt.bombeachguide.R;
 
 /**
  * Created by Trang on 5/19/2016.
  */
-public class VideoFragment extends Fragment {
+public class VideoFragment extends BaseFragment {
 
     public static final int LIST_VIDEO_HEAVY = 1;
     public static final int LIST_VIDEO_ZOKA = 2;
@@ -62,12 +61,13 @@ public class VideoFragment extends Fragment {
             }
         });
 
+        getMainActivity().showDrawerAsDrawer();
         return rootView;
     }
 
     private void chooseListVideo(int listVideo){
-        Intent intent = ListVideoActivity.newIntent(getContext(), listVideo);
-        startActivity(intent);
+        ListVideoFragment fragment = ListVideoFragment.newInstance(listVideo);
+        displayDetail(fragment);
     }
 
 

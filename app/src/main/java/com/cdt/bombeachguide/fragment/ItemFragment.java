@@ -24,7 +24,7 @@ import java.util.ArrayList;
 /**
  * Created by Trang on 5/21/2016.
  */
-public class ItemFragment extends Fragment {
+public class ItemFragment extends BaseFragment {
     ListView mItemListView;
     ArrayList<Item> mItemArrayList=new ArrayList<Item>();
     Context mContext;
@@ -83,6 +83,7 @@ public class ItemFragment extends Fragment {
                 });
             }
         });
+        getMainActivity().showDrawerAsDrawer();
         return rootView;
 
     }
