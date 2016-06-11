@@ -78,11 +78,11 @@ public class ListVideoFragment extends BaseFragment implements VideoFragmentInte
                 mFolderName = "Hea_lyrics.txt";
                 break;
 
-            case VideoFragment.LIST_VIDEO_ZOKA:
+            case VideoFragment.LIST_VIDEO_BoombeachWiki:
                 mFolderName = "Zo_lyrics.txt";
                 break;
 
-            case VideoFragment.LIST_VIDEO_TANK:
+            case VideoFragment.LIST_VIDEO_StrategyBlog:
                 mFolderName = "Tan_lyrics.txt";
                 break;
         }
@@ -128,7 +128,7 @@ public class ListVideoFragment extends BaseFragment implements VideoFragmentInte
         }.start();
     }
 
-    public void addVideoItems(final Collection<VideoItem> videoItems, int videoType){
+    public void addVideoItems(final ArrayList<VideoItem> videoItems, int videoType){
         handler.post(new Runnable() {
             @Override
             public void run() {
@@ -151,6 +151,8 @@ public class ListVideoFragment extends BaseFragment implements VideoFragmentInte
 
         });
     }
+
+
 
     private static abstract class CustomArrayAdapter<T> extends BaseAdapter {
 

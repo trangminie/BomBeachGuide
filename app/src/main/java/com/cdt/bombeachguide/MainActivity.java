@@ -159,12 +159,13 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case 2:
                 mFragment = VideoFragment.newInstance();
+             //   mFragment = new MainFragmentTest();
                 break;
             case 3:
                 mFragment = ListItemFragment.newInstance("http://boombeach.wikia.com/wiki/Category:Artifacts");
                 break;
             case 4:
-                mFragment = ListItemFragment.newInstance("http://boombeach.wikia.com/wiki/Category:Troops");
+                mFragment = ListItemFragment.newInstance("http://boombeach.wikia.com/wiki/Category:Buildings");
                 break;
             case 5:
                 Toast.makeText(getApplicationContext(),"About Fragment",Toast.LENGTH_LONG).show();

@@ -1,14 +1,11 @@
 package com.cdt.bombeachguide.fragment;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 
 import com.cdt.bombeachguide.R;
 
@@ -18,12 +15,12 @@ import com.cdt.bombeachguide.R;
 public class VideoFragment extends BaseFragment {
 
     public static final int LIST_VIDEO_HEAVY = 1;
-    public static final int LIST_VIDEO_ZOKA = 2;
-    public static final int LIST_VIDEO_TANK = 3;
+    public static final int LIST_VIDEO_BoombeachWiki = 2;
+    public static final int LIST_VIDEO_StrategyBlog = 3;
 
     private CardView mHeavyCardView;
-    private CardView mZokaCardView;
-    private CardView mTankCardView;
+    private CardView mBoombeachWikiCardView;
+    private CardView mStrategyBlogCardView;
 
     public static VideoFragment newInstance(){
         VideoFragment fragment = new VideoFragment();
@@ -49,19 +46,19 @@ public class VideoFragment extends BaseFragment {
             }
         });
 
-        mZokaCardView = (CardView) rootView.findViewById(R.id.zoka_view);
-        mZokaCardView.setOnClickListener(new View.OnClickListener() {
+        mBoombeachWikiCardView = (CardView) rootView.findViewById(R.id.BoombeachWiki_view);
+        mBoombeachWikiCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                chooseListVideo(LIST_VIDEO_ZOKA);
+                chooseListVideo(LIST_VIDEO_BoombeachWiki);
             }
         });
 
-        mTankCardView = (CardView) rootView.findViewById(R.id.tank_view);
-        mTankCardView.setOnClickListener(new View.OnClickListener() {
+        mStrategyBlogCardView = (CardView) rootView.findViewById(R.id.StrategyBlog_view);
+        mStrategyBlogCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                chooseListVideo(LIST_VIDEO_TANK);
+                chooseListVideo(LIST_VIDEO_StrategyBlog);
             }
         });
 

@@ -13,10 +13,10 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.cdt.bombeachguide.HTTP.HTTPProcess;
-import com.cdt.bombeachguide.HTTP.Item;
 import com.cdt.bombeachguide.R;
 import com.cdt.bombeachguide.WebViewActivity;
 import com.cdt.bombeachguide.adapter.ListItemAdapter;
+import com.cdt.bombeachguide.pojo.Item;
 
 import java.util.ArrayList;
 
@@ -54,7 +54,7 @@ public class ListItemFragment extends BaseFragment {
             @Override
             public void run() {
            //     mHTTPProcess.download("http://boombeach.wikia.com/wiki/Category:Artifacts",mItemArrayList);
-                mHTTPProcess.download(mUrl,mItemArrayList);
+                mHTTPProcess.getListItemsFromUrl(mUrl,mItemArrayList);
                 ((Activity) mContext).runOnUiThread(new Runnable() {
 
                     @Override

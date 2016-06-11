@@ -105,7 +105,7 @@
 
         <android.support.v7.widget.CardView
             xmlns:cardview="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/zoka_view"
+            android:id="@+id/BoombeachWiki_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             cardview:cardCornerRadius="2dp"
@@ -118,12 +118,12 @@
                 android:orientation="vertical">
 
                 <FrameLayout
-                    android:id="@+id/frameLayout_zoka"
+                    android:id="@+id/frameLayout_BoombeachWiki"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
                     <ImageView
-                        android:id="@+id/imageView_zoka"
+                        android:id="@+id/imageView_BoombeachWiki"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:adjustViewBounds="true"
@@ -132,7 +132,7 @@
                         android:src="@drawable/hoka" />
 
                     <LinearLayout
-                        android:id="@+id/linearView_zoka"
+                        android:id="@+id/linearView_BoombeachWiki"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:background="@color/status_bar_background"
@@ -141,7 +141,7 @@
                         android:visibility="gone">
 
                         <LinearLayout
-                            android:id="@+id/layoutButtons_zoka"
+                            android:id="@+id/layoutButtons_BoombeachWiki"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"
@@ -160,17 +160,17 @@
                 </FrameLayout>
 
                 <TextView
-                    android:id="@+id/textView_zoka"
+                    android:id="@+id/textView_BoombeachWiki"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/frameLayout_zoka"
+                    android:layout_below="@id/frameLayout_BoombeachWiki"
                     android:fontFamily="sans-serif-light"
                     android:lineSpacingExtra="4dp"
                     android:paddingBottom="24dp"
                     android:paddingLeft="24dp"
                     android:paddingRight="24dp"
                     android:paddingTop="48dp"
-                    android:text="@string/desc_zoka"
+                    android:text="@string/desc_BoombeachWiki"
                     android:textColor="@color/grey"
                     android:textSize="16sp"
                     android:textStyle="bold" />
@@ -178,13 +178,13 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/textView_zoka"
+                    android:layout_below="@id/textView_BoombeachWiki"
                     android:fontFamily="sans-serif-medium"
                     android:paddingBottom="@dimen/activity_vertical_margin"
                     android:paddingLeft="24dp"
                     android:paddingRight="24dp"
                     android:paddingTop="24dp"
-                    android:text="@string/italic_zoka"
+                    android:text="@string/italic_BoombeachWiki"
                     android:textColor="@color/grey"
                     android:textSize="16sp"
                     android:textStyle="italic" />
@@ -195,7 +195,7 @@
 
         <android.support.v7.widget.CardView
             xmlns:cardview="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/tank_view"
+            android:id="@+id/StrategyBlog_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             cardview:cardCornerRadius="2dp"
@@ -208,12 +208,12 @@
                 android:orientation="vertical">
 
                 <FrameLayout
-                    android:id="@+id/frameLayout_tank"
+                    android:id="@+id/frameLayout_StrategyBlog"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
                     <ImageView
-                        android:id="@+id/imageView_tank"
+                        android:id="@+id/imageView_StrategyBlog"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:adjustViewBounds="true"
@@ -222,7 +222,7 @@
                         android:src="@drawable/hoka" />
 
                     <LinearLayout
-                        android:id="@+id/linearView_tank"
+                        android:id="@+id/linearView_StrategyBlog"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:background="@color/status_bar_background"
@@ -231,7 +231,7 @@
                         android:visibility="gone">
 
                         <LinearLayout
-                            android:id="@+id/layoutButtons_tank"
+                            android:id="@+id/layoutButtons_StrategyBlog"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"
@@ -250,17 +250,17 @@
                 </FrameLayout>
 
                 <TextView
-                    android:id="@+id/textView_tank"
+                    android:id="@+id/textView_StrategyBlog"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/frameLayout_tank"
+                    android:layout_below="@id/frameLayout_StrategyBlog"
                     android:fontFamily="sans-serif-light"
                     android:lineSpacingExtra="4dp"
                     android:paddingBottom="24dp"
                     android:paddingLeft="24dp"
                     android:paddingRight="24dp"
                     android:paddingTop="48dp"
-                    android:text="@string/desc_tank"
+                    android:text="@string/desc_StrategyBlog"
                     android:textColor="@color/grey"
                     android:textSize="16sp"
                     android:textStyle="bold" />
@@ -268,13 +268,13 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/textView_tank"
+                    android:layout_below="@id/textView_StrategyBlog"
                     android:fontFamily="sans-serif-medium"
                     android:paddingBottom="@dimen/activity_vertical_margin"
                     android:paddingLeft="24dp"
                     android:paddingRight="24dp"
                     android:paddingTop="24dp"
-                    android:text="@string/italic_tank"
+                    android:text="@string/italic_StrategyBlog"
                     android:textColor="@color/grey"
                     android:textSize="16sp"
                     android:textStyle="italic" />

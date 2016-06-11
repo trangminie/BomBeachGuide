@@ -1,4 +1,4 @@
-package com.cdt.bombeachguide.HTTP;
+package com.cdt.bombeachguide.pojo;
 
 /**
  * Created by nguyen on 5/22/2016.
@@ -36,8 +36,6 @@ public class Item {
 
             return new Item(tmplink, tmptitle, tmpimageurl, tmptext);
         }
-
-
     }
     public void print(){
         System.out.println("------------------------------------------------------");
