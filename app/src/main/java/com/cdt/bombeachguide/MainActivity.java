@@ -1,6 +1,7 @@
 package com.cdt.bombeachguide;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -162,10 +163,10 @@ public class MainActivity extends AppCompatActivity {
              //   mFragment = new MainFragmentTest();
                 break;
             case 3:
-                mFragment = ListItemFragment.newInstance("http://boombeach.wikia.com/wiki/Category:Artifacts");
+                mFragment = ListItemFragment.newInstance("Artifacts","http://boombeach.wikia.com/wiki/Category:Artifacts");
                 break;
             case 4:
-                mFragment = ListItemFragment.newInstance("http://boombeach.wikia.com/wiki/Category:Buildings");
+                mFragment = ListItemFragment.newInstance("Troops","http://boombeach.wikia.com/wiki/Category:Troops");
                 break;
             case 5:
                 Toast.makeText(getApplicationContext(),"About Fragment",Toast.LENGTH_LONG).show();

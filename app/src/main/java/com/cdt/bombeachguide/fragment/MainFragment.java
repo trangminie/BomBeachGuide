@@ -22,6 +22,7 @@ import android.widget.Toast;
 
 import com.cdt.bombeachguide.HTTP.HTTPProcess;
 import com.cdt.bombeachguide.R;
+import com.cdt.bombeachguide.WebViewActivity;
 import com.cdt.bombeachguide.inter.VideoFragmentInterface;
 import com.cdt.bombeachguide.pojo.IntroduceItem;
 import com.cdt.bombeachguide.pojo.VideoItem;
@@ -85,23 +86,21 @@ public class MainFragment extends BaseFragment implements VideoFragmentInterface
         mContext=getActivity();
 
         img_HomeBanner=(ImageView)rootView.findViewById(R.id.imageView_homeBanner);
-
-
         getActivity().runOnUiThread(new Runnable() {
             @Override
             public void run() {
                 Picasso.with(getActivity())
                         .load("http://vignette4.wikia.nocookie.net/boombeach/images/2/2e/MainPageBanner.png/revision/latest/scale-to-width-down/650?cb=20160327220846")
-                        .fit()
+
                         .into(img_HomeBanner);
             }
         });
-        mIntroduceItemsList = new ArrayList<>();
+  //      mIntroduceItemsList = new ArrayList<>();
 //        mIntroduceItemsList.add(new IntroduceItem(null, "Video"));
-        mIntroduceItemsList.add(new IntroduceItem(null, "Troops"));
-        mIntroduceItemsList.add(new IntroduceItem(null, "Artifacts"));
-        mIntroduceItemsList.add(new IntroduceItem(null, "Artifacts"));
-        mRecyclerView.setAdapter(new ImageAdapter(mIntroduceItemsList));
+   //     mIntroduceItemsList.add(new IntroduceItem(null, "Troops"));
+     //   mIntroduceItemsList.add(new IntroduceItem(null, "Artifacts"));
+     //   mIntroduceItemsList.add(new IntroduceItem(null, "Artifacts"));
+  //      mRecyclerView.setAdapter(new ImageAdapter(mIntroduceItemsList));
 
         assetManager = getActivity().getAssets();
         mVideoTextView = (TextView) rootView.findViewById(R.id.txt_video);
@@ -205,7 +204,7 @@ public class MainFragment extends BaseFragment implements VideoFragmentInterface
             }
         };
         mBoombeachWikiListView.setAdapter(mBoombeachWikiAdapter);*/
-        searchOnWebsite("http://boombeach.wikia.com/wiki/Boom_Beach_Wiki");
+      //  searchOnWebsite("http://boombeach.wikia.com/wiki/Boom_Beach_Wiki");
 
 
     }
@@ -267,7 +266,6 @@ public class MainFragment extends BaseFragment implements VideoFragmentInterface
 
             mImageView = (ImageView) itemView.findViewById(R.id.img_intro);
             mImageView.setOnClickListener(this);
-
             mTextView = (TextView) itemView.findViewById(R.id.txt_intro_name);
         }
 
@@ -353,10 +351,18 @@ public class MainFragment extends BaseFragment implements VideoFragmentInterface
                             v.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
-                                    Toast.makeText(getContext(),item.getUrl(),Toast.LENGTH_LONG).show();
-
-                                    ListItemFragment listVideoFragment = ListItemFragment.newInstance(item.getUrl());
-                                    displayDetail(listVideoFragment);
+//                                    ListItemFragment listVideoFragment = ListItemFragment.newInstance(item.getTitle(),item.getUrl());
+//                                    displayDetail(listVideoFragment);
+                                    if(item.getTitle().equals("Events")||item.getTitle().equals("Starter's Tips")||item.getTitle().equals("Task Force Recruitment")||item.getTitle().equals("Staff Members")){
+//                                        Intent intent=new Intent(getActivity(),WebViewActivity.class);
+//                                        intent.putExtra("link",item.getUrl());
+//                                        startActivity(intent);
+                                        WebViewFragment webviewfragment = WebViewFragment.newInstance(item.getTitle(),item.getUrl());
+                                        displayDetail(webviewfragment);
+                                    }else {
+                                        ListItemFragment fragment = ListItemFragment.newInstance(item.getTitle(), item.getUrl());
+                                        displayDetail(fragment);
+                                    }
                                 }
                             });
 
@@ -377,9 +383,9 @@ public class MainFragment extends BaseFragment implements VideoFragmentInterface
                             v.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
-                                    Toast.makeText(getContext(),item.getUrl(),Toast.LENGTH_LONG).show();
-                                    ListItemFragment listVideoFragment = ListItemFragment.newInstance(item.getUrl());
-                                    displayDetail(listVideoFragment);
+                                    WebViewFragment webviewfragment = WebViewFragment.newInstance(item.getTitle(),item.getUrl());
+                                    displayDetail(webviewfragment);;
+
                                 }
                             });
                         }
