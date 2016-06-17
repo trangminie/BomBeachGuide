@@ -129,7 +129,7 @@
                         android:adjustViewBounds="true"
                         android:contentDescription="@string/image"
                         android:scaleType="fitXY"
-                        android:src="@drawable/hoka" />
+                        android:src="@drawable/ic_roka" />
 
                     <LinearLayout
                         android:id="@+id/linearView_BoombeachWiki"
@@ -219,7 +219,7 @@
                         android:adjustViewBounds="true"
                         android:contentDescription="@string/image"
                         android:scaleType="fitXY"
-                        android:src="@drawable/hoka" />
+                        android:src="@drawable/alltrops" />
 
                     <LinearLayout
                         android:id="@+id/linearView_StrategyBlog"

@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
     private Context mContext;
     private boolean isViewDetail = false;
 
-    private String[] navMenuTitles = {"Home" ,"Videos", "Artifacts", "Troops", "About","Setting"};
+    private String[] navMenuTitles = {"Home" ,"Videos", "Artifacts", "Troops", "About"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -92,8 +92,8 @@ public class MainActivity extends AppCompatActivity {
         navDrawerItems.add(new NavDrawerItem(navMenuTitles[3], navMenuIcons.getResourceId(3, -1)));
         // About
         navDrawerItems.add(new NavDrawerItem(navMenuTitles[4], navMenuIcons.getResourceId(4, -1)));
-        // Setting
-        navDrawerItems.add(new NavDrawerItem(navMenuTitles[5],navMenuIcons.getResourceId(5,-1)));
+        // Setting remove
+       // navDrawerItems.add(new NavDrawerItem(navMenuTitles[5],navMenuIcons.getResourceId(5,-1)));
 
         // Recycle the typed array
         navMenuIcons.recycle();
