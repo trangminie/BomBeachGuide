@@ -84,7 +84,6 @@ public class WebViewFragment extends BaseFragment {
                         {
                             getActivity().runOnUiThread(new  Runnable() {
                                 public void run() {
-                                //    myWebView.loadData(element.toString(), "text/html", "UTF-8");
                                     myWebView.loadDataWithBaseURL("http://boombeach.wikia.com/wiki/", element.outerHtml(), "text/html", "UTF-8", "");
                                 }
                             });
