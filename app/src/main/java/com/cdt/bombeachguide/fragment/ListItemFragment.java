@@ -79,7 +79,6 @@ public class ListItemFragment extends BaseFragment implements VideoFragmentInter
                 VideoItem searchResult = getItem(position);
 
                 Picasso.with(getActivity()).load(searchResult.getThumbnailURL()).into(thumbnail);
-                Log.d("vietduc",searchResult.getTitle()+" "+searchResult.getThumbnailURL());
                 title.setText(searchResult.getTitle());
                 return convertView;
             }
