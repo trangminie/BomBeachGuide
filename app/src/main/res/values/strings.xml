@@ -6,12 +6,11 @@
     <string name="drawer_close">Slider Menu Closed</string>
 
     <array name="nav_drawer_icons">
-        <item>@drawable/home1</item>
-        <item>@drawable/home1</item>
-        <item>@drawable/home1</item>
-        <item>@drawable/home1</item>
-        <item>@drawable/home1</item>
-        <item>@drawable/home1</item>
+        <item>@drawable/ic_home</item>
+        <item>@drawable/ic_videos</item>
+        <item>@drawable/statue</item>
+        <item>@drawable/ic_troops</item>
+        <item>@drawable/info</item>
     </array>
 
     <!-- Content Description -->
