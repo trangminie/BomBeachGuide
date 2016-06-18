@@ -4,9 +4,11 @@ import android.util.Log;
 
 import com.cdt.bombeachguide.fragment.MainFragment;
 import com.cdt.bombeachguide.fragment.VideoFragment;
+import com.cdt.bombeachguide.inter.VideoFragmentInterface;
 import com.cdt.bombeachguide.pojo.Item;
 import com.cdt.bombeachguide.pojo.VideoItem;
 
+import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -79,7 +81,8 @@ public void getListItemsFromUrl(String url,ArrayList<Item> myArray){
 
 }
 
-    public void searchListItemsFromUrl(String url, MainFragment mainFragment) {
+
+    public void searchListItemsFromUrl(String url, VideoFragmentInterface mainFragment) {
         List<VideoItem> videos = new ArrayList<VideoItem>();
 
             try {
@@ -101,30 +104,14 @@ public void getListItemsFromUrl(String url,ArrayList<Item> myArray){
                         Elements lsimgurl = tmpelement.select("img");
                         if(lsimgurl.size()>1) thumbnailUrl=lsimgurl.get(1).attr("src");
                         else if(lsimgurl.size()==1) thumbnailUrl=lsimgurl.get(0).attr("src");
-                        if (!title.equals("") && !murl.equals("")) {
+                        if (!title.equals("") && !thumbnailUrl.equals("")) {
 
-
-                            VideoItem tmp = mItemHashMap.get(title);
-                            if (tmp == null) {
-                                mItemHashMap.put(title, new VideoItem( title,decription,
-                                        thumbnailUrl, murl));
-                            } else {
-                                mItemHashMap.put(title, tmp.merge(tmp, new VideoItem( title,decription,
-                                        thumbnailUrl, murl)));
-                            }
+                            videos.add(new VideoItem(title,decription,thumbnailUrl,murl));
                         }
 
 
                     }
 
-                }
-
-
-                for (String i : mItemHashMap.keySet()) {
-                    if(mItemHashMap.get(i).getTitle()!=null&&mItemHashMap.get(i).getUrl()!=null&&mItemHashMap.get(i).getDescription()!=null&&mItemHashMap.get(i).getThumbnailURL()!="") {
-                        videos.add(mItemHashMap.get(i));
-                        Log.d("vietduc", mItemHashMap.get(i).getTitle());
-                    }
                 }
                 if(!videos.isEmpty()){
                     mainFragment.addVideoItems(new ArrayList<VideoItem>(videos), VideoFragment.LIST_VIDEO_BoombeachWiki);
@@ -142,6 +129,9 @@ public void getListItemsFromUrl(String url,ArrayList<Item> myArray){
         List<VideoItem> videos = new ArrayList<VideoItem>();
         List<VideoItem> videos2 = new ArrayList<VideoItem>();
         try {
+
+            Connection connection = Jsoup.connect(url);
+            connection.timeout(10000);
             Document doc =  Jsoup.connect(url).get();
             Elements newsHeadlines = doc.select("div");
 

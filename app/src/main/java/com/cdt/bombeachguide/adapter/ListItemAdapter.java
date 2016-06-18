@@ -45,14 +45,14 @@ public class ListItemAdapter extends ArrayAdapter<Item>
             //dòng lệnh lấy TextView ra để hiển thị Mã và tên lên
             final Item item=myArray.get(position);
             final ImageView imgitem=(ImageView)
-                    convertView.findViewById(R.id.item_imageview);
+                    convertView.findViewById(R.id.video_thumbnail);
             imgitem.setImageResource(R.drawable.header);
             Picasso.with(context)
                     .load(item.imageurl)
                     .resize(100, 100)
                     .into(imgitem);
 
-            final TextView tvitem=(TextView)convertView.findViewById(R.id.item_textview);
+            final TextView tvitem=(TextView)convertView.findViewById(R.id.video_title);
             tvitem.setTextColor(Color.RED);
             tvitem.setText(item.title);
         }
