@@ -80,10 +80,10 @@ public class WebViewFragment extends BaseFragment {
 
                     for(final Element element:newsHeadlines){
 
-                        if(element.attr("id").equals("mw-content-text"))
-                        {
+                        if(element.attr("id").equals("mw-content-text")){
                             getActivity().runOnUiThread(new  Runnable() {
                                 public void run() {
+
                                     myWebView.loadDataWithBaseURL("http://boombeach.wikia.com/wiki/", element.outerHtml(), "text/html", "UTF-8", "");
                                 }
                             });
