@@ -15,8 +15,9 @@ import com.cdt.bombeachguide.R;
 public class VideoFragment extends BaseFragment {
 
     public static final int LIST_VIDEO_HEAVY = 1;
-    public static final int LIST_VIDEO_BoombeachWiki = 2;
-    public static final int LIST_VIDEO_StrategyBlog = 3;
+    public static final int LIST_BoombeachWiki = 2;
+    public static final int LIST_StrategyBlog = 3;
+    public static final int LIST_VIDEO = 4;
 
     private CardView mHeavyCardView;
     private CardView mBoombeachWikiCardView;
@@ -50,7 +51,7 @@ public class VideoFragment extends BaseFragment {
         mBoombeachWikiCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                chooseListVideo(LIST_VIDEO_BoombeachWiki);
+                chooseListVideo(LIST_BoombeachWiki);
             }
         });
 
@@ -58,7 +59,7 @@ public class VideoFragment extends BaseFragment {
         mStrategyBlogCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                chooseListVideo(LIST_VIDEO_StrategyBlog);
+                chooseListVideo(LIST_StrategyBlog);
             }
         });
 

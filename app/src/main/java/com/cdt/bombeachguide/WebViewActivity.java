@@ -28,7 +28,7 @@ public class WebViewActivity extends Activity {
 
         url=getIntent().getStringExtra("link");
         final WebView myWebView = (WebView) findViewById(R.id.webview);
-        myWebView .loadUrl(url);
+    //    myWebView .loadUrl(url);
         myWebView.setWebViewClient(new MyWebViewClient());
         WebSettings webSettings = myWebView.getSettings();
         webSettings.setJavaScriptEnabled(false);
@@ -88,7 +88,7 @@ public class WebViewActivity extends Activity {
                 }
             }
 
-        });//.start();
+        }).start();
 
     }
 

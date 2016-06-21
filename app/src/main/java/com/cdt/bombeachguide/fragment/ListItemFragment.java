@@ -78,7 +78,7 @@ public class ListItemFragment extends BaseFragment implements VideoFragmentInter
 
                 VideoItem searchResult = getItem(position);
 
-                Picasso.with(getActivity()).load(searchResult.getThumbnailURL()).into(thumbnail);
+                Picasso.with(getActivity()).load(searchResult.getThumbnailURL()) .resize(200, 200).into(thumbnail);
                 title.setText(searchResult.getTitle());
                 return convertView;
             }

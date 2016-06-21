@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.os.Handler;
+import android.provider.MediaStore;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -18,11 +19,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.cdt.bombeachguide.HTTP.HTTPProcess;
 import com.cdt.bombeachguide.R;
-import com.cdt.bombeachguide.WebViewActivity;
 import com.cdt.bombeachguide.inter.VideoFragmentInterface;
 import com.cdt.bombeachguide.pojo.IntroduceItem;
 import com.cdt.bombeachguide.pojo.VideoItem;
@@ -47,13 +46,20 @@ public class MainFragment extends BaseFragment implements VideoFragmentInterface
     private ArrayList<IntroduceItem> mIntroduceItemsList;
     private AssetManager assetManager;
 
-    private TextView mVideoTextView;
+
 
     private HorizontalListView mHeavyListView;
     private ProgressBar mHeavyProgressBar;
     private Handler mHeavyHandler;
     private CustomArrayAdapter<VideoItem> mHeavyAdapter;
     private TextView mHeavyTextView;
+
+    private LinearLayout mVideoListView;
+    private ProgressBar mVideoProgressBar;
+    private CustomArrayAdapter<VideoItem> mVideoAdapter;
+    private ArrayList<VideoItem> mListVideo=new ArrayList<>();
+    private Handler mVideoHandler;
+    private TextView mVideoTextView;
 
     private LinearLayout mBoombeachWikiListView;
     private ProgressBar mBoombeachWikiProgressBar;
@@ -95,20 +101,26 @@ public class MainFragment extends BaseFragment implements VideoFragmentInterface
                         .into(img_HomeBanner);
             }
         });
-  //      mIntroduceItemsList = new ArrayList<>();
+//        mIntroduceItemsList = new ArrayList<>();
 //        mIntroduceItemsList.add(new IntroduceItem(null, "Video"));
-   //     mIntroduceItemsList.add(new IntroduceItem(null, "Troops"));
-     //   mIntroduceItemsList.add(new IntroduceItem(null, "Artifacts"));
-     //   mIntroduceItemsList.add(new IntroduceItem(null, "Artifacts"));
-  //      mRecyclerView.setAdapter(new ImageAdapter(mIntroduceItemsList));
+//        mIntroduceItemsList.add(new IntroduceItem(null, "Troops"));
+//        mIntroduceItemsList.add(new IntroduceItem(null, "Artifacts"));
+//        mIntroduceItemsList.add(new IntroduceItem(null, "Artifacts"));
+//        mRecyclerView.setAdapter(new ImageAdapter(mIntroduceItemsList));
 
         assetManager = getActivity().getAssets();
         mVideoTextView = (TextView) rootView.findViewById(R.id.txt_video);
 
-        mHeavyListView = (HorizontalListView) rootView.findViewById(R.id.video_heavy);
-        mHeavyProgressBar = (ProgressBar) rootView.findViewById(R.id.heavy_progressbar);
-        mHeavyTextView = (TextView) rootView.findViewById(R.id.list_video_heavy);
-        createListHeavy();
+//        mHeavyListView = (HorizontalListView) rootView.findViewById(R.id.video_heavy);
+//        mHeavyProgressBar = (ProgressBar) rootView.findViewById(R.id.heavy_progressbar);
+//        mHeavyTextView = (TextView) rootView.findViewById(R.id.list_video_heavy);
+//        createListHeavy();
+
+        mVideoListView = (LinearLayout) rootView.findViewById(R.id.list_item_video);
+        mVideoProgressBar = (ProgressBar)rootView.findViewById(R.id.Video_progressbar);
+        mVideoTextView = (TextView)rootView.findViewById(R.id.tv_video);
+        createListVideo();
+
 
         mBoombeachWikiListView = (LinearLayout) rootView.findViewById(R.id.list_item_boombeach);
         mBoombeachWikiProgressBar = (ProgressBar) rootView.findViewById(R.id.BoombeachWiki_progressbar);
@@ -169,87 +181,26 @@ public class MainFragment extends BaseFragment implements VideoFragmentInterface
 
     private void createListBoombeachWiki(){
         mBoombeachWikiHandler = new Handler();
-        addClickListenerForVideo(VideoFragment.LIST_VIDEO_BoombeachWiki);
-
- /*       String mFolderName = "Zo_lyrics.txt";
-        List<String> listUrls = new ArrayList<String>();
-
-        try {
-            BufferedReader reader = new BufferedReader(new InputStreamReader(assetManager.open(mFolderName)));
-            String line;
-            while( (line = reader.readLine()) != null){
-                listUrls.add("https://www.youtube.com/watch?v=" + line.trim());
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        mBoombeachWikiAdapter = new CustomArrayAdapter<VideoItem>(getActivity()){
-            @Override
-            public View getView(int position, View convertView, ViewGroup parent) {
-                if(convertView == null){
-                    convertView = getActivity().getLayoutInflater().inflate(R.layout.horizontal_video_item, parent, false);
-                }
-                ImageView thumbnail = (ImageView)convertView.findViewById(R.id.video_thumbnail);
-                TextView title = (TextView)convertView.findViewById(R.id.video_title);
-                title.setSelected(true);
-                VideoItem searchResult = getItem(position);
-
-                Picasso.with(getActivity())
-                        .load(searchResult.getThumbnailURL())
-                        .fit()
-                        .into(thumbnail);
-                title.setText(searchResult.getTitle());
-                return convertView;
-            }
-        };
-        mBoombeachWikiListView.setAdapter(mBoombeachWikiAdapter);*/
-      //  searchOnWebsite("http://boombeach.wikia.com/wiki/Boom_Beach_Wiki");
-
+        addClickListenerForVideo(VideoFragment.LIST_BoombeachWiki);
 
     }
 
     private void createListStrategyBlog(){
         mStrategyBlogHandler = new Handler();
-        addClickListenerForVideo(VideoFragment.LIST_VIDEO_StrategyBlog);
+        addClickListenerForVideo(VideoFragment.LIST_StrategyBlog);
 
-/*        String mFolderName = "Tan_lyrics.txt";
-        List<String> listUrls = new ArrayList<String>();
-
-        try {
-            BufferedReader reader = new BufferedReader(new InputStreamReader(assetManager.open(mFolderName)));
-            String line;
-            while( (line = reader.readLine()) != null){
-                listUrls.add("https://www.youtube.com/watch?v=" + line.trim());
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        mStrategyBlogAdapter = new CustomArrayAdapter<VideoItem>(getActivity()){
-            @Override
-            public View getView(int position, View convertView, ViewGroup parent) {
-                if(convertView == null){
-                    convertView = getActivity().getLayoutInflater().inflate(R.layout.horizontal_video_item, parent, false);
-                }
-                ImageView thumbnail = (ImageView)convertView.findViewById(R.id.video_thumbnail);
-                TextView title = (TextView)convertView.findViewById(R.id.video_title);
-                title.setSelected(true);
-                VideoItem searchResult = getItem(position);
-
-                Picasso.with(getActivity())
-                        .load(searchResult.getThumbnailURL())
-                        .resize(250, 200)
-                        .centerCrop()
-                        .into(thumbnail);
-                title.setText(searchResult.getTitle());
-                return convertView;
-            }
-        };
-        mStrategyBlogListView.setAdapter(mStrategyBlogAdapter);*/
-     //   searchOnYoutube(listUrls, VideoFragment.LIST_VIDEO_StrategyBlog);
     }
+    private void createListVideo(){
 
+        mVideoHandler = new Handler();
+        ArrayList<VideoItem> videos = new ArrayList<>();
+
+        videos.add(new VideoItem("hoka",R.drawable.hoka+""));
+        videos.add(new VideoItem("roka",R.drawable.ic_roka+""));
+        videos.add(new VideoItem("alltroops",R.drawable.alltrops+""));
+        addVideoItems(videos,VideoFragment.LIST_VIDEO);
+
+    }
 
 
     private class ImageHolder extends RecyclerView.ViewHolder
@@ -336,8 +287,43 @@ public class MainFragment extends BaseFragment implements VideoFragmentInterface
                     }
                 });
                 break;
+            case VideoFragment.LIST_VIDEO:
+                mVideoHandler.post(new Runnable() {
+                    @Override
+                    public void run() {
 
-            case VideoFragment.LIST_VIDEO_BoombeachWiki:
+                        mVideoProgressBar.setVisibility(View.GONE);
+                        for(final VideoItem item :videoItems){
+
+                            View v=insertPhoto(item);
+                            mVideoListView.addView(v);
+                            v.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    int videoType=1;
+
+                                    switch (item.getTitle()){
+                                        case("hoka"):
+                                            videoType=1;
+                                            break;
+                                        case("roka"):
+                                            videoType=2;
+                                            break;
+                                        case("alltroops"):
+                                            videoType = 3;
+                                            break;
+                                    }
+                                    ListVideoFragment fragment = ListVideoFragment.newInstance(videoType);
+                                    displayDetail(fragment);
+                                }
+                            });
+
+                        }
+                    }
+                });
+
+                break;
+            case VideoFragment.LIST_BoombeachWiki:
                 mBoombeachWikiHandler.post(new Runnable() {
                     @Override
                     public void run() {
@@ -371,7 +357,7 @@ public class MainFragment extends BaseFragment implements VideoFragmentInterface
                 });
                 break;
 
-            case VideoFragment.LIST_VIDEO_StrategyBlog:
+            case VideoFragment.LIST_StrategyBlog:
                 mStrategyBlogHandler.post(new Runnable() {
                     @Override
                     public void run() {
@@ -412,7 +398,7 @@ public class MainFragment extends BaseFragment implements VideoFragmentInterface
 
                 });
                 break;
-            case VideoFragment.LIST_VIDEO_StrategyBlog:
+            case VideoFragment.LIST_StrategyBlog:
 
             //    mStrategyBlogListView.setOnClickListener();
             /*   mStrategyBlogListView.setOnClickListener(new View.OnClickListener() {
@@ -427,7 +413,7 @@ public class MainFragment extends BaseFragment implements VideoFragmentInterface
 
                 });*/
                 break;
-            case VideoFragment.LIST_VIDEO_BoombeachWiki:
+            case VideoFragment.LIST_BoombeachWiki:
 /*                mBoombeachWikiListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
                     @Override
@@ -452,18 +438,18 @@ public class MainFragment extends BaseFragment implements VideoFragmentInterface
                 displayDetail(videoFragment);
             }
         });
-        mHeavyTextView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                ListVideoFragment listVideoFragment = ListVideoFragment.newInstance(VideoFragment.LIST_VIDEO_HEAVY);
-                displayDetail(listVideoFragment);
-            }
-        });
+//        mHeavyTextView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                ListVideoFragment listVideoFragment = ListVideoFragment.newInstance(VideoFragment.LIST_VIDEO_HEAVY);
+//                displayDetail(listVideoFragment);
+//            }
+//        });
 
         mBoombeachWikiTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ListVideoFragment listVideoFragment = ListVideoFragment.newInstance(VideoFragment.LIST_VIDEO_BoombeachWiki);
+                ListVideoFragment listVideoFragment = ListVideoFragment.newInstance(VideoFragment.LIST_BoombeachWiki);
                displayDetail(listVideoFragment);
 
 
@@ -473,7 +459,7 @@ public class MainFragment extends BaseFragment implements VideoFragmentInterface
         mStrategyBlogTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ListVideoFragment listVideoFragment = ListVideoFragment.newInstance(VideoFragment.LIST_VIDEO_StrategyBlog);
+                ListVideoFragment listVideoFragment = ListVideoFragment.newInstance(VideoFragment.LIST_StrategyBlog);
                 displayDetail(listVideoFragment);
             }
         });
@@ -517,8 +503,15 @@ public class MainFragment extends BaseFragment implements VideoFragmentInterface
 
         ImageView imageView = (ImageView)child.findViewById(R.id.video_thumbnail);
         imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        Picasso.with(getActivity())
-                .load(item.getThumbnailURL())
+        if(item.getThumbnailURL()!=null)
+            Picasso.with(getActivity())
+                    .load(item.getThumbnailURL())
+                    .resize(250, 200)
+                    .centerCrop()
+                    .into(imageView);
+        else
+            Picasso.with(getActivity())
+                .load(Integer.parseInt(item.getId()))
                 .resize(250, 200)
                 .centerCrop()
                 .into(imageView);

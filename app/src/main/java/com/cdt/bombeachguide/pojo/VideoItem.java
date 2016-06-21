@@ -17,6 +17,12 @@ public class VideoItem {
         this.url=url;
 
     }
+    public VideoItem(String title,String id){
+        super();
+        this.title = title;
+        this.id = id;
+    }
+
     public VideoItem(){};
     public VideoItem merge(VideoItem itm1,VideoItem itm2){
         if(itm1==null)return itm2;

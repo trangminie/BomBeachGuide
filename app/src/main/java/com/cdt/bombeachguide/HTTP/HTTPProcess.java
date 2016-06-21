@@ -1,7 +1,5 @@
 package com.cdt.bombeachguide.HTTP;
 
-import android.util.Log;
-
 import com.cdt.bombeachguide.fragment.MainFragment;
 import com.cdt.bombeachguide.fragment.VideoFragment;
 import com.cdt.bombeachguide.inter.VideoFragmentInterface;
@@ -114,7 +112,7 @@ public void getListItemsFromUrl(String url,ArrayList<Item> myArray){
 
                 }
                 if(!videos.isEmpty()){
-                    mainFragment.addVideoItems(new ArrayList<VideoItem>(videos), VideoFragment.LIST_VIDEO_BoombeachWiki);
+                    mainFragment.addVideoItems(new ArrayList<VideoItem>(videos), VideoFragment.LIST_BoombeachWiki);
                     videos.clear();
                 }
 
@@ -167,11 +165,11 @@ public void getListItemsFromUrl(String url,ArrayList<Item> myArray){
 
             }
             if(!videos.isEmpty()){
-                mainFragment.addVideoItems(new ArrayList<VideoItem>(videos), VideoFragment.LIST_VIDEO_BoombeachWiki);
+                mainFragment.addVideoItems(new ArrayList<VideoItem>(videos), VideoFragment.LIST_BoombeachWiki);
                 videos.clear();
             }
             if(!videos2.isEmpty()){
-                mainFragment.addVideoItems(new ArrayList<VideoItem>(videos2), VideoFragment.LIST_VIDEO_StrategyBlog);
+                mainFragment.addVideoItems(new ArrayList<VideoItem>(videos2), VideoFragment.LIST_StrategyBlog);
                 videos2.clear();
             }
 

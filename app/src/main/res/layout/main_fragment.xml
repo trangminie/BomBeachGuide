@@ -37,7 +37,7 @@
             android:text=""
             style="@style/BigTextStyle"/>
 
-        <android.support.v7.widget.CardView
+<!--        <android.support.v7.widget.CardView
             style="@style/card_view"
             android:layout_width="fill_parent"
             android:layout_height="260dp">
@@ -68,6 +68,45 @@
                 android:layout_marginRight="5dip">
 
             </com.cdt.bombeachguide.ui.HorizontalListView>
+
+        </android.support.v7.widget.CardView>-->
+
+        <android.support.v7.widget.CardView
+            style="@style/card_view"
+            android:layout_width="fill_parent"
+            android:layout_height="260dp"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:id="@+id/tv_video"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_span="4"
+                android:text="Video"
+                style="@style/SmallTextStyle"/>
+
+            <ProgressBar
+                android:id="@+id/Video_progressbar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:indeterminate="false" />
+
+            <HorizontalScrollView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="45dp"
+                android:layout_marginBottom="10dp"
+                android:smoothScrollbar="true"
+                android:spacing="20dip"
+                android:layout_marginRight="5dip" >
+                <LinearLayout
+                    android:id="@+id/list_item_video"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    />
+            </HorizontalScrollView>
 
         </android.support.v7.widget.CardView>
 

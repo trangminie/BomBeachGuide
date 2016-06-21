@@ -78,11 +78,11 @@ public class ListVideoFragment extends BaseFragment implements VideoFragmentInte
                 mFolderName = "Hea_lyrics.txt";
                 break;
 
-            case VideoFragment.LIST_VIDEO_BoombeachWiki:
+            case VideoFragment.LIST_BoombeachWiki:
                 mFolderName = "Zo_lyrics.txt";
                 break;
 
-            case VideoFragment.LIST_VIDEO_StrategyBlog:
+            case VideoFragment.LIST_StrategyBlog:
                 mFolderName = "Tan_lyrics.txt";
                 break;
         }
